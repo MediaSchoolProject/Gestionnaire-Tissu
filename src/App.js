@@ -12,7 +12,7 @@ function App() {
     <div>
     <h1 className='title' style={{color:'green'}}> Hi World</h1>
       <p>j’ai vu beaucoup de célèbres tableaux, comme La Joconde de Leonard De Vinci.</p>
-      <img src={image01} alt=''/>
+      <img src={image01} alt='my image'/>
       <br/>
       <button className='btn btn-primary'> click me! </button>
     </div>
