@@ -8,6 +8,7 @@ import Footer from './components/footer/Footer'
 function App() {
   return (
     <>
+
       <Navbar />
       <Cart />
 
@@ -19,7 +20,6 @@ function App() {
         <button className='btn btn-primary'> click me! </button>
       </div>
       <Footer />
-
 
 
     </>
