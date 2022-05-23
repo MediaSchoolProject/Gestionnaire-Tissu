@@ -1,0 +1,16 @@
+*body{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    margin: 25%;
+    text-align:center;
+}
+
+#button{
+    width: 30%;
+    margin-top: 10%;
+}
+

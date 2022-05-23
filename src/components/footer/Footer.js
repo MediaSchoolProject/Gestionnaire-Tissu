@@ -1,17 +1,14 @@
+import React from 'react'
+import './Footer.css'
+
 export default function Footer() {
-    return (
-        <div>
 
-            <div class="container-fluid mt-auto">
-                <div class="row">
-                    <div class="col-12 py-4 bg-warning"></div>
-                </div>
-            </div>
+  let newDate = new Date();
 
-        </div>
-
-
-
-    )
-
+  return (
+      <div className="LoginFooter">
+        {" "}
+        ALL RIGHTS RESERVED @ {newDate.getFullYear()}
+      </div>
+  );
 }

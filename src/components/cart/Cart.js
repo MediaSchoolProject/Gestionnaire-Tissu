@@ -1,5 +1,5 @@
 import React from 'react'
-import image01 from '../../pictures/image01.jfif'
+import image01 from '../../pictures/logo.jpg'
 
 export default function Cart(props) {
   return (
