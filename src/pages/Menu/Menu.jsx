@@ -1,52 +1,34 @@
-import React from "react";
+import './Menu.css';
+import React,{useState} from "react";
+import Dropdown from './Dropdown';
 
-export default function Menu() {
+
+export default function App() {
+  
+  const [selected,setSelected]=useState('');
+
+//     -----     DEPARTEMENTS   -----
+
+  const IMPORT ='IMPORT'
+  const Import = ["PLANNING IMPORTS","FACTURE","BON DE LIVRAISON" ,"FICHE TECHNIQUE MATIERE","FICHE INTERNE MATIERE","STOCK"];
+  
+  const MAGASIN='MAGASIN'
+  const Magasin=['STOCK',"PLACEMENT","INVENTAIRE"]
+
+  const FABRICATION_ET_EXPORT='FABRICATION ET EXPORT'
+  const FabricationEtExport=["PLANNING EXPORTS",'FICHE PRODUIT',"COMMANDE","ATELIERS ET RENDEMENT","METHODE"]
+
+  const FACTURATION='FACTURATION'
+  const Facturation=['CLIENTS',"COMMANDE","FICHE PRODUIT","FICHE INTERNE MATIERE"]
+
   return (
-    <>
-      <div className="container">
-        <h3> IMPORT</h3>
-        <select>
-          <option value="">LISTE COLISAGE ET FACTURE IMPORT</option>
-          <option value="">FICHE TECHNIQUE MATIERE</option>
-          <option value="">CREATION DE FICHE MATIERE</option>
-          <option value="">INTRODUIRE DU MATIERE EN STOCK</option>
-          <option value="">AUTRES</option>
-        </select>
-      </div>
-      <div className="container">
-        <h3> STOCK</h3>
-        <select>
-          <option value="">CONSULTER STOCK</option>
-          <option value="">CONSULTER EMPLACEMENTS</option>
-          <option value="">PLACEMENT DU MATIERE</option>
-          <option value="">SORTIE POUR PRODUCTION</option>
-          <option value="">SORTIE POUR TRANSFERT</option>
-          <option value="">INVENTAIRE</option>
-          <option value="">AUTRES MODIFICATIONS SUR STOCK</option>
-        </select>
-      </div>
-      <div className="container">
-        <h3>FABRICATION ET EXPORT</h3>
-        <select>
-          <option value="">CONSULTER FICHE TECHNIQUE PRODUIT</option>
-          <option value="">CREATION COMMANDE</option>
-          <option value="">SUIVIE DE COMMANDE</option>
-          <option value="">METHODE</option>
-          <option value="">ATELIERS ET RENDEMENT</option>
-          <option value="">DOUANES</option>
-          <option value="">AUTRES</option>
-        </select>
-      </div>
-      <div className="container">
-        <h3>FACTURATION ET SOUS-TRAITANTS</h3>
-        <select>
-          <option value="">CLIENTS</option>
-          <option value="">FICHE TECHNIQUE PRODUIT</option>
-          <option value="">FICHE MATIERE</option>
-          <option value="">SUIVIE DE COMMANDE</option>
-          <option value="">AUTRES</option>
-        </select>
-      </div>
-    </>
+    <div>
+    <Dropdown setSelected={setSelected} operations={Import} departement={IMPORT}/>
+    <Dropdown setSelected={setSelected} operations={Magasin} departement={MAGASIN}/>
+    <Dropdown setSelected={setSelected} operations={FabricationEtExport} departement={FABRICATION_ET_EXPORT}/>
+    <Dropdown setSelected={setSelected} operations={Facturation} departement={FACTURATION}/>
+    </div>
   );
 }
+
+
