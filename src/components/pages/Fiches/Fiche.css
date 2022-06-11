@@ -1,0 +1,35 @@
+.container{
+    margin: 20% 10% 5% 10%;
+    height: 213px;
+}
+
+
+
+
+
+#voirListe{
+    margin: 1% 4% 10% 5%;
+    color:rgb(17, 150, 195)
+}
+
+#voirListe:hover{
+    background-color:lightblue ;
+    color:blue;
+}
+
+#recherche{
+    height: 7%;
+    width: 40%;
+    margin: 3%;
+}
+
+#ajouter {
+    margin:1% 5% 10% 5%;
+    color:rgb(17, 150, 195);
+}
+
+#ajouter:hover {
+    background-color:lightblue ;
+    color:blue;
+}
+
