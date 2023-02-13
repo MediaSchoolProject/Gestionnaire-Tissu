@@ -14,7 +14,8 @@ import { useState } from "react";
 
 function App() {
 
-  const [listeFournisseurs, setlisteFournisseurs] = useState([]);
+  const [language, setLanguage]=useState('En')
+  const [listeFournisseurs,setListeFournisseurs]=([])
   const [listMatieres,setListeMatieres]=useState([])
   const [listeProduits,setListeProduits]=useState([])
   const [listeCommandes,setListeCommandes]=useState([])

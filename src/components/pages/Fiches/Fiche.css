@@ -3,10 +3,6 @@
     height: 213px;
 }
 
-
-
-
-
 #voirListe{
     margin: 1% 4% 10% 5%;
     color:rgb(17, 150, 195)
@@ -31,5 +27,58 @@
 #ajouter:hover {
     background-color:lightblue ;
     color:blue;
+}
+
+* {
+    padding: 0;
+    margin: 0
+}
+
+.containerInput {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ececec
+}
+
+.input-container {
+    position: relative
+}
+
+.input-container input[type="text"],.input-container input [type='email'] {
+    height: 50px;
+    width: 290px;
+    appearance: none;
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
+    border-radius: 10px;
+    border: 8px solid #ececec;
+    background-color: #ececec;
+    cursor: pointer;
+    outline: none;
+    padding: 0px 15px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s
+}
+
+.input-container input[type="text"]:after {
+    font-family: FontAwesome;
+    content: '\f011';
+    position: absolute;
+    color: #7a7a7a;
+    font-size: 30px;
+    color: red
+}
+
+.input-container input[type="text"]:focus {
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12), inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+    color: green
+}
+
+.input-container input[type="text"]:focus:after {
+    color: #1B5E20
 }
 

@@ -21,8 +21,8 @@ nav {
 }
 
 
-.Login{
-    margin-left: 50%;
+.Logout{
+    margin-left: 40%;
     color: rgb(17, 150, 195);
     font-size: 100%;
     padding: 14px;
@@ -36,4 +36,12 @@ nav {
         width: 5%;
         height: 10%;
         margin:0.8% 5%;
+    }
+
+    #flag{
+        margin: 1%;
+        padding: 0;
+        width: 5%;
+        height: 10%;
+        border-radius: 50%;
     }

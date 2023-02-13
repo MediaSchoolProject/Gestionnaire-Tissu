@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "../../navbar/Navbar";
@@ -6,107 +6,97 @@ import Footer from "../../footer/Footer";
 import "./Fiche.css";
 
 export default function Fournisseur(state) {
+  const [listeFournisseurs, setlisteFournisseurs] = useState([]);
+  const [numero, setNumero] = useState(0);
+  const [nom, setNom] = useState("");
+  const [addresse, setAddresse] = useState("");
+  const [telephone, setTelephone] = useState("");
+  const [email, setEmail] = useState("");
 
-  const [show, setShow] = useState(true);
+  const[recherche,setRecherche]=useState('')
 
   const fournisseur = {
-    NUMERO: Number,
-    NOM: String,
-    ADDRESSE: String,
-    MATRICULE: String,
-    TELEPHONE: Number,
-    EMAIL: String,
+    NUMERO: numero,
+    NOM: nom,
+    // ADDRESSE: String,
+    // MATRICULE: String,
+    // TELEPHONE: Number,
+    EMAIL: email,
   };
+const [storage,setStorage]=useState( JSON.parse(localStorage.getItem("fournisseur")) ||[] )
 
-
-
-  // const ListeFournisseurs = (element) => {
-  //   return;
-  //   <>
-  //     <div className="ListeElements">
-  //       <div>{element.NUMERO}</div>
-  //       <div>{element.NOM}</div>
-  //       <div>{element.MATRICULE}</div>
-  //       <div>{element.ADDRESSE}</div>
-  //       <div>{element.TELEPHONE}</div>
-  //       <div>{element.EMAIL}</div>
-  //     </div>
-  //   </>;
-  // };
+  // useEffect(()=>{
+  //   setlisteFournisseurs([...listeFournisseurs,fournisseur])
+  // },[])
 
   return (
-    <>
+    <div>
       <Navbar />
-
-      <div className="container">
-        <form>
-          <button
-            id="ajouter"
-            className="btn btn-outline-info"
-            type="submit"
-            onClick={
-              show && (
-                <div>
-                  <input
-                    type="text"
-                    placeholder="le nom du fournisseur"
-                    onChange={(e) => {
-                      fournisseur.NOM = e.target.value;
-                    }}
-                  />
-                  <input
-                    type="text"
-                    placeholder="La matricule"
-                    onChange={(e) => {
-                      fournisseur.MATRICULE = e.target.value;
-                    }}
-                  />
-                  <input
-                    type="text"
-                    placeholder="ADDRESSE"
-                    onChange={(e) => {
-                      fournisseur.ADDRESSE = e.target.value;
-                    }}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Telephone"
-                    onChange={(e) => {
-                      fournisseur.TELEPHONE = e.target.value;
-                    }}
-                  />
-                  <input
-                    type="text"
-                    placeholder="e-mail"
-                    onChange={(e) => {
-                      fournisseur.EMAIL = e.target.value;
-                    }}
-                  />
-                  <button
-                    onClick={(e) => {
-                      setState=state.push(fournisseur);
-                      setShow= !show;
-                    }}
-                  >
-                    submit
-                  </button>
-                </div>
-              )
-            }
-          >
-            AJOUTER UN FOURNISSEUR
-          </button>
+      <div className="containerInput">
+        <div className="input-container">
           <input
-            id="recherche"
-            className="form-control me-2"
-            type="search"
-            placeholder="Recherche"
-            aria-label="Search"
+            type="text"
+            placeholder="Numero"
+            onChange={(e) => {
+              setNumero(e.target.value);
+            }}
           />
-        </form>
+        </div>
+        <div className="input-container">
+          <input
+            type="text"
+            placeholder="Nom"
+            onChange={(e) => {
+              setNom(e.target.value);
+            }}
+          />
+        </div>
+        <div className="input-container">
+          <input
+            type="text"
+            placeholder="Email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
       </div>
-      {/* {ListeFournisseurs(state)} */}
+      <div className="input-container">
+          <input
+            type="text"
+            placeholder="searche ..."
+            onChange={(e) => {
+              setRecherche(e.target.value);
+            }}
+          />
+        </div>
+      <button
+        id="startButton"
+         onClick={(e) => {
+           var x=storage;
+           x=[...listeFournisseurs,fournisseur];
+           setlisteFournisseurs(x);
+          localStorage.setItem('fournisseur',JSON.stringify(listeFournisseurs))
+        }}
+      >
+        AJOUTER
+      </button>
+      
+        {listeFournisseurs
+        .filter((item)=>item.NOM.includes(recherche))
+        .map((element) => {
+          return(
+          <div >
+          <h3>Numero : {element.NUMERO}</h3>
+          <h3>Nom : {element.NOM}</h3>
+          <h3>Email : {element.EMAIL}</h3>
+          </div>
+          )
+          
+        })}
+      
+
       <Footer />
-    </>
+    </div>
   );
 }

@@ -5,7 +5,7 @@ import "./Menu.css"
 function Dropdown({ operations, departement }) {
 
   const [isActive, setIsActive] = useState(false); // etat: voir/masquer la liste des operations
-  const [selected, setSelected] = useState("choose one"); // etat: pour voir l'operation choisie
+  const [selected, setSelected] = useState("CHOOSE ONE"); // etat: pour voir l'operation choisie
 
   return (
     <div className="container">
